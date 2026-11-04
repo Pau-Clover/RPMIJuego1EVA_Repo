@@ -1,3 +1,4 @@
+using Unity.Cinemachine;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement; //Librería de carga/descarga de escenas
@@ -80,6 +81,9 @@ public class PlayerInteractor : MonoBehaviour
         playerRb.angularVelocity = new Vector3(0, 0, 0);
         //4- Reproducir el sonido de respawn desde el audiosource del player
         sfxSource.PlayOneShot(sfxList[1]);
+        //5- reiniciar los pickups y la puntuación
+        points = 0;
+
     }
 
     void ChangeScene()
