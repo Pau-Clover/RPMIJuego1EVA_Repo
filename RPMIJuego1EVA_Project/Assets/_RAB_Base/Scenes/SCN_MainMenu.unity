@@ -515,7 +515,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.02943846, y: 0.14155558}
   m_AnchorMax: {x: 0.97200006, y: 0.86111104}
-  m_AnchoredPosition: {x: -2.1206665, y: -1.5}
+  m_AnchoredPosition: {x: -2.1207275, y: -1.5}
   m_SizeDelta: {x: 1.0830078, y: 10.690979}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &543731749
@@ -1301,10 +1301,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1291149586}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.15163077, y: 0.48981482}
-  m_AnchorMax: {x: 0.851877, y: 0.80300003}
-  m_AnchoredPosition: {x: -3.5, y: -5.861557}
-  m_SizeDelta: {x: -1.9680176, y: 9.199005}
+  m_AnchorMin: {x: 0.15163077, y: 0.5758889}
+  m_AnchorMax: {x: 0.85178673, y: 0.8984074}
+  m_AnchoredPosition: {x: 0.9840698, y: -1}
+  m_SizeDelta: {x: -1.9680176, y: -0.8009949}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1366275668
 MonoBehaviour:
@@ -1326,17 +1326,19 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: ROLL-A-BALL BEYOND
+  m_text: 'Way To
+
+    SuperDay'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 1c5742a8a20910f41aff535008985886, type: 2}
-  m_sharedMaterial: {fileID: 496052890602540340, guid: 1c5742a8a20910f41aff535008985886, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b97f139471ddd52498f1e3664f2fc948, type: 2}
+  m_sharedMaterial: {fileID: -4105118446931084043, guid: b97f139471ddd52498f1e3664f2fc948, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4291458412
-  m_fontColor: {r: 0.42239228, g: 0.4586475, b: 0.7924528, a: 1}
+    rgba: 4278223861
+  m_fontColor: {r: 0.9622642, g: 0.51193875, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1353,8 +1355,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 140
-  m_fontSizeBase: 140
+  m_fontSize: 75.9
+  m_fontSizeBase: 75.9
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
