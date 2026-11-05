@@ -8,11 +8,16 @@ public class PlayerInteractor : MonoBehaviour
     [Header("Respawn Configuration")]
     public Transform respawnPoint; //Ref al punto de respawn para usar su posición
     public float respawnFallLimit = -10; //Valor negativo en eje Y a partir del cual se respawnea
+    public int sceneToRespawn; //Número de escena en la build a respawnear
 
     [Header("Point System")]
     public int points; //Cantidad de puntos actuales del player
     public int winPoints = 5; //Cantidad de puntos necesarios para ganar
     public int sceneToLoad = 2; //Número de escena a cargar cuando se consigue la victoria
+
+    [Header("Health Point system")]
+    public int hp;
+    public int maxHp = 3;
 
     [Header("Reference Variables")]
     public Rigidbody playerRb; //Ref al rigidbody para resetear su motor de aceleración al respawnear
@@ -82,8 +87,12 @@ public class PlayerInteractor : MonoBehaviour
         //4- Reproducir el sonido de respawn desde el audiosource del player
         sfxSource.PlayOneShot(sfxList[1]);
         //5- reiniciar los pickups y la puntuación
-        points = 0;
+        SceneManager.LoadScene(sceneToRespawn);
+    }
 
+    void health()
+    {
+        
     }
 
     void ChangeScene()
