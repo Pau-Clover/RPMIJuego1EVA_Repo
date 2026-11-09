@@ -92,7 +92,18 @@ public class PlayerInteractor : MonoBehaviour
 
     void health()
     {
-        
+        // En principio esto es para quitar una vida pero no sé hacerlo xd
+        if (playerRb.)
+        { 
+
+        }
+        // Game over
+        if (hp == 0) 
+        {
+            // Sujeto a cambios, deberia llevar a una escena de pantalla de game over pero de momento se queda en el main menu
+            SceneManager.LoadScene(0);
+        }
+
     }
 
     void ChangeScene()
