@@ -1953,6 +1953,10 @@ PrefabInstance:
       propertyPath: respawnPoint
       value: 
       objectReference: {fileID: 372308703}
+    - target: {fileID: 2955268093276677981, guid: ad05bb52c848bd34798792368a48d415, type: 3}
+      propertyPath: sceneToRespawn
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3295082559860610859, guid: ad05bb52c848bd34798792368a48d415, type: 3}
       propertyPath: m_Name
       value: Player
