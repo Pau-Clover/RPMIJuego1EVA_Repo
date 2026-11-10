@@ -220,7 +220,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
   speed: 10
   jumpForce: 8
-  useLinearVelocity: 1
+  useLinearVelocity: 0
   groundCheck: 0
   playerRb: {fileID: 3409069474521666296}
   moveInput: {x: 0, y: 0}

@@ -5,18 +5,24 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     [Header("Movement Parameters")]
-    public float speed; //Variable que define la velocidad del player
-    public float jumpForce; //Define la fuerza de salto
-    public bool useLinearVelocity = true; //Si es verdadero, usará el movimiento físico por motor de aceleración, si no, el de fuerza de empuje
-    public bool groundCheck; //Bool que determina si el pj puede saltar o no (cuando está en el suelo puede)
+    public float speed; //velocidad del player
+    public float jumpForce; //fuerza de salto
+    public bool useLinearVelocity = true; //true = movimiento físico por motor de aceleración
+    public bool groundCheck; //detecta si la pelota toca el suelo
 
 
     [Header("Reference Variables")]
     public Rigidbody playerRb; //Almacén de referencia del rb, una vez relleno permite modificar sus variables internas
     public Vector2 moveInput; //Almacén de los valores de pulsación de movimiento (0, 1, -1)
+    private bool canDash = true;
+    private bool isDashing = false;
     public AudioSource sfxSource; //Ref al altavoz del player, para reproducir sonidos
     public PlayerInteractor playerInteractor; //Ref al script, permite acceder a su lista de sonidos públicos
 
+    [Header("Dash Settings")]
+    public float dashSpeed = 25f;
+    public float dashDuration = 0.2f;
+    public float dashCooldown = 0f;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -46,12 +52,6 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void CinematicMove()
-    {
-        //Se usa transform.Translate para moverse (dirección * velocidad)
-        transform.Translate(Vector3.forward * speed * moveInput.y * Time.deltaTime);
-        transform.Translate(Vector3.right * speed * moveInput.x * Time.deltaTime);
-    }
 
     void PhysicalMove()
     {
@@ -77,6 +77,7 @@ public class PlayerController : MonoBehaviour
         //Reproducir sonido de salto: accede al player interactor y busca el sonido exacto en la lista
         sfxSource.PlayOneShot(playerInteractor.sfxList[0]);
     }
+
 
     #region Input Methods
     //Declaramos los métodos de input (eventos de unity)
