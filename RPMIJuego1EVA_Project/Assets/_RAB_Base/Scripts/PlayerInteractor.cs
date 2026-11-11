@@ -17,7 +17,6 @@ public class PlayerInteractor : MonoBehaviour
 
     [Header("Health Point system")]
     public int hp;
-    public int maxHp = 3;
 
     [Header("Reference Variables")]
     public Rigidbody playerRb; //Ref al rigidbody para resetear su motor de aceleración al respawnear
@@ -78,25 +77,22 @@ public class PlayerInteractor : MonoBehaviour
 
     void Respawn()
     {
-        //1- Cambia la posición del player por la del punto de respawn
+        // 1. Quita un punto de vida
+        hp--;
+        //2- Cambia la posición del player por la del punto de respawn
         transform.position = respawnPoint.position;
-        //2- Resetea la velocidad del Rigidbody para evitar acumulaciones de aceleración
+        //3- Resetea la velocidad del Rigidbody para evitar acumulaciones de aceleración
         playerRb.linearVelocity = new Vector3(0, 0, 0);
-        //3- Resetea la velocidad de rotación
+        //4- Resetea la velocidad de rotación
         playerRb.angularVelocity = new Vector3(0, 0, 0);
-        //4- Reproducir el sonido de respawn desde el audiosource del player
+        //5- Reproducir el sonido de respawn desde el audiosource del player
         sfxSource.PlayOneShot(sfxList[1]);
-        //5- reiniciar los pickups y la puntuación
+        //6- reiniciar los pickups y la puntuación
         SceneManager.LoadScene(sceneToRespawn);
     }
 
-    void health()
+    void gameOver()
     {
-        // En principio esto es para quitar una vida pero no sé hacerlo xd
-        if (playerRb.)
-        { 
-
-        }
         // Game over
         if (hp == 0) 
         {
