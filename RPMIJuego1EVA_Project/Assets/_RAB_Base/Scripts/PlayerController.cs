@@ -1,6 +1,8 @@
+using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Rendering.Universal.Internal;
 
 public class PlayerController : MonoBehaviour
 {
@@ -10,19 +12,25 @@ public class PlayerController : MonoBehaviour
     public bool useLinearVelocity = true; //true = movimiento físico por motor de aceleración
     public bool groundCheck; //detecta si la pelota toca el suelo
 
+    [Header("Input Actions")]
+    public InputActionReference dashAction;
 
     [Header("Reference Variables")]
     public Rigidbody playerRb; //Almacén de referencia del rb, una vez relleno permite modificar sus variables internas
     public Vector2 moveInput; //Almacén de los valores de pulsación de movimiento (0, 1, -1)
     private bool canDash = true;
-    private bool isDashing = false;
     public AudioSource sfxSource; //Ref al altavoz del player, para reproducir sonidos
     public PlayerInteractor playerInteractor; //Ref al script, permite acceder a su lista de sonidos públicos
+    private Vector3 dashDirection;
+    public Transform cameraTransform;
+    private float originalInputX;
+    private float originalInputY;
 
     [Header("Dash Settings")]
     public float dashSpeed = 25f;
     public float dashDuration = 0.2f;
-    public float dashCooldown = 0f;
+    public float dashCooldown = 1f;
+    public float dashThreshold = 5f;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -36,6 +44,7 @@ public class PlayerController : MonoBehaviour
     {
         //Ejecuta todo lo que depende del procesador y ejecuta el input
         //CinematicMove();
+        Debug.Log(playerRb.linearVelocity);
     }
 
     private void FixedUpdate()
@@ -55,19 +64,11 @@ public class PlayerController : MonoBehaviour
 
     void PhysicalMove()
     {
-        if (useLinearVelocity == true)
-        {
-            //Tipo de movimiento por uso del motor de aceleración del rigidbody
-            //A cada eje del rigidbody se le multiplica la velocidad * input por separado
-            playerRb.linearVelocity = new Vector3(speed * moveInput.x, playerRb.linearVelocity.y, speed * moveInput.y);
-        }
-        else
-        {
             //Tipo de movimiento por fuerza de empuje en cada eje del rigidbody
             //A cada eje se le aplica un AddForce en la dirección concreta
             playerRb.AddForce(Vector3.right * speed * moveInput.x);
             playerRb.AddForce(Vector3.forward * speed * moveInput.y);
-        }
+        
     }
 
     void Jump()
@@ -78,6 +79,38 @@ public class PlayerController : MonoBehaviour
         sfxSource.PlayOneShot(playerInteractor.sfxList[0]);
     }
 
+    IEnumerator Dash()         //IEnumerator es una variable que permite hacer una secuencia de acciones con pausas entre medias
+                               //(que no lo hace todo de una vamos)
+    {
+        canDash = false;
+        useLinearVelocity = true;
+        originalInputX = moveInput.normalized.x; //Almacenamos los valores del input para que la pelota no pueda
+        originalInputY = moveInput.normalized.y; //cambiar de dirección durante el dash
+
+        sfxSource.PlayOneShot(playerInteractor.sfxList[4]);
+
+        //Para mantener el dash mientras dure, con su timer para que determina lo que dura
+        float timer = 0f;
+
+        while (timer < dashDuration)
+        {
+            playerRb.linearVelocity = new Vector3(dashSpeed * originalInputX, 0, dashSpeed * originalInputY); //Mantiene el dash en una dirección,
+                                                                                                                                      //con la velocidad que le hayamos puesto
+
+            timer += Time.fixedDeltaTime; //Para que el timer vaya sumando segundos
+            yield return new WaitForFixedUpdate();
+        }
+
+        yield return new WaitForFixedUpdate();
+        playerRb.linearVelocity = new Vector3(speed * originalInputX, playerRb.linearVelocity.y, speed * originalInputY); //Frena la pelota para dar un efecto
+                                                                                                                          //de dash mas convincente
+        useLinearVelocity = false;
+        //Esperamos cooldown
+        yield return new WaitForSeconds(dashCooldown);
+
+        canDash = true;
+
+    }
 
     #region Input Methods
     //Declaramos los métodos de input (eventos de unity)
@@ -90,17 +123,21 @@ public class PlayerController : MonoBehaviour
 
     public void OnJump(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        //Si aprieto el botón y si estoy en el suelo...
+        if (context.performed && groundCheck == true)
         {
-            //Si aprieto el botón...
-            //Y si estoy en el suelo...
-            if (groundCheck == true)
-            {
-                Jump();
-            }
-            
+            Jump();
         }
         
+    }
+
+    public void OnDash(InputAction.CallbackContext context)
+    {
+
+        if (context.performed && canDash == true && (moveInput.x != 0 || moveInput.y !=0))
+        {
+            StartCoroutine(Dash());
+        }
     }
 
     #endregion
