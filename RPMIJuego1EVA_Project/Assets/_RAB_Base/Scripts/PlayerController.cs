@@ -39,7 +39,6 @@ public class PlayerController : MonoBehaviour
     {
         //Ejecuta todo lo que depende del procesador y ejecuta el input
         //CinematicMove();
-        Debug.Log(playerRb.linearVelocity);
     }
 
     private void FixedUpdate()
