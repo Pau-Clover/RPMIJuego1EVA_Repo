@@ -12,9 +12,6 @@ public class PlayerController : MonoBehaviour
     public bool useLinearVelocity = true; //true = movimiento físico por motor de aceleración
     public bool groundCheck; //detecta si la pelota toca el suelo
 
-    [Header("Input Actions")]
-    public InputActionReference dashAction;
-
     [Header("Reference Variables")]
     public Rigidbody playerRb; //Almacén de referencia del rb, una vez relleno permite modificar sus variables internas
     public Vector2 moveInput; //Almacén de los valores de pulsación de movimiento (0, 1, -1)
@@ -30,8 +27,6 @@ public class PlayerController : MonoBehaviour
     public float dashSpeed = 25f;
     public float dashDuration = 0.2f;
     public float dashCooldown = 1f;
-    public float dashThreshold = 5f;
-
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
