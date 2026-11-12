@@ -201,6 +201,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: c526ecae-ddf3-478f-a904-c5294bedd9eb
     m_ActionName: 'Gameplay/Jump[/Keyboard/space]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3032030455206832374}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: OnDash
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: PlayerC
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: f2bb78c9-5ee6-4315-9350-437f2ce24c3a
+    m_ActionName: 'Gameplay/Dash[/Keyboard/leftShift]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Gameplay
@@ -220,12 +236,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
   speed: 10
   jumpForce: 8
-  useLinearVelocity: 1
+  useLinearVelocity: 0
   groundCheck: 0
+  dashAction: {fileID: 0}
   playerRb: {fileID: 3409069474521666296}
   moveInput: {x: 0, y: 0}
   sfxSource: {fileID: 8591341639417929703}
   playerInteractor: {fileID: 2955268093276677981}
+  cameraTransform: {fileID: 0}
+  dashSpeed: 25
+  dashDuration: 0.2
+  dashCooldown: 1
+  dashThreshold: 5
 --- !u!114 &2955268093276677981
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -249,6 +271,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 74a05b92e48855f4ca373c8f94f18c0f, type: 3}
   - {fileID: 8300000, guid: e07d5aa9e36c2404f952345371717cac, type: 3}
   - {fileID: 8300000, guid: 31cef3202bf9bd94d83ce7a26b452ff2, type: 3}
+  - {fileID: 8300000, guid: 2e1979a58cb261348b7b4ea9a005c362, type: 3}
   sfxSource: {fileID: 8591341639417929703}
 --- !u!82 &8591341639417929703
 AudioSource:
