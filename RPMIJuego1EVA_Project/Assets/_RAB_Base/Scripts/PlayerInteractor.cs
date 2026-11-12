@@ -17,7 +17,6 @@ public class PlayerInteractor : MonoBehaviour
 
     [Header("Health Point system")]
     public int hp;
-    private int maxHp = 3;
 
     [Header("Reference Variables")]
     public Rigidbody playerRb; //Ref al rigidbody para resetear su motor de aceleración al respawnear
