@@ -991,6 +991,81 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 81cd6398c20b91b4ea090968b06e9fbd, type: 3}
+--- !u!1 &965933791
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 965933792}
+  - component: {fileID: 965933794}
+  - component: {fileID: 965933793}
+  m_Layer: 5
+  m_Name: Heart
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &965933792
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 965933791}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1404306211}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -455, y: -54.189}
+  m_SizeDelta: {x: 90.956, y: 90.956}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &965933793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 965933791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 13fad8f1c9deb61419c6e90193babc69, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &965933794
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 965933791}
+  m_CullTransparentMesh: 1
 --- !u!1 &1025858449
 GameObject:
   m_ObjectHideFlags: 0
@@ -1177,7 +1252,6 @@ GameObject:
   - component: {fileID: 1224622878}
   - component: {fileID: 1224622881}
   - component: {fileID: 1224622880}
-  - component: {fileID: 1224622879}
   m_Layer: 5
   m_Name: Health
   m_TagString: Untagged
@@ -1199,26 +1273,11 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1404306211}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1971, y: -54.188995}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -36.70215, y: 0.000021145}
   m_SizeDelta: {x: 754.595, y: 108.37799}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1224622879
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1224622877}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6b303f9b4a110740af41b9b9f4b42c6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PointsUpdater
-  pointsText: {fileID: 0}
-  hpText: {fileID: 1224622880}
-  playerIntScript: {fileID: 375356049}
+  m_Pivot: {x: 1, y: 1}
 --- !u!114 &1224622880
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1248,8 +1307,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4283145191
-  m_fontColor: {r: 0.9056604, g: 0.6085187, b: 0.2947668, a: 1}
+    rgba: 4280384292
+  m_fontColor: {r: 0.1429299, g: 0.4811321, b: 0.12936097, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1386,6 +1445,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1404306211}
   - component: {fileID: 1404306212}
+  - component: {fileID: 1404306213}
   m_Layer: 5
   m_Name: Gameplay_Panel
   m_TagString: Untagged
@@ -1407,6 +1467,7 @@ RectTransform:
   m_Children:
   - {fileID: 2093649363}
   - {fileID: 1224622878}
+  - {fileID: 965933792}
   m_Father: {fileID: 1025858453}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1422,6 +1483,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1404306210}
   m_CullTransparentMesh: 1
+--- !u!114 &1404306213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1404306210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6b303f9b4a110740af41b9b9f4b42c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PointsUpdater
+  pointsText: {fileID: 2093649364}
+  hpText: {fileID: 1224622880}
+  playerIntScript: {fileID: 375356049}
 --- !u!1001 &1418925090
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1945,7 +2021,6 @@ GameObject:
   - component: {fileID: 2093649363}
   - component: {fileID: 2093649365}
   - component: {fileID: 2093649364}
-  - component: {fileID: 2093649366}
   m_Layer: 5
   m_Name: Points
   m_TagString: Untagged
@@ -2001,8 +2076,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4283145191
-  m_fontColor: {r: 0.9056604, g: 0.6085187, b: 0.2947668, a: 1}
+    rgba: 4280384293
+  m_fontColor: {r: 0.14509805, g: 0.48235294, b: 0.12941177, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -2072,21 +2147,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2093649362}
   m_CullTransparentMesh: 1
---- !u!114 &2093649366
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2093649362}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6b303f9b4a110740af41b9b9f4b42c6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PointsUpdater
-  pointsText: {fileID: 2093649364}
-  hpText: {fileID: 0}
-  playerIntScript: {fileID: 375356049}
 --- !u!4 &2124307325 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3764835493390259756, guid: ad05bb52c848bd34798792368a48d415, type: 3}

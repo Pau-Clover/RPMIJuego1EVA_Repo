@@ -4,7 +4,7 @@ using TMPro; //Librería que permite trabajar con objetos de Text Mesh Pro
 public class PointsUpdater : MonoBehaviour
 {
     public TMP_Text pointsText; //Ref al texto que indica los puntos, para poder modificar el texto
-    public TMP_Text hpText; // texto que indica la
+    public TMP_Text hpText; // texto que indica la vida
     public PlayerInteractor playerIntScript; //Ref al script que contiene los puntos y los winpoints. Para poder acceder a su valor
 
     // Update is called once per frame

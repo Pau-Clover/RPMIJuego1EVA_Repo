@@ -17,6 +17,7 @@ public class PlayerInteractor : MonoBehaviour
 
     [Header("Health Point system")]
     public int hp;
+    private int maxHp = 3;
 
     [Header("Reference Variables")]
     public Rigidbody playerRb; //Ref al rigidbody para resetear su motor de aceleración al respawnear
@@ -46,6 +47,9 @@ public class PlayerInteractor : MonoBehaviour
         {
             ChangeScene();
         }
+
+        healthControl();
+
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -71,6 +75,13 @@ public class PlayerInteractor : MonoBehaviour
         if (other.gameObject.CompareTag("Switch"))
         {
             sfxSource.PlayOneShot(sfxList[3]); //Reproducir el sonido asociado al switch
+            other.gameObject.SetActive(false); //Apagar el objeto con el que chocas
+        }
+        // recuperar vida
+        if (other.gameObject.CompareTag("Heal")) 
+        {
+            other.gameObject.SetActive(false); //apaga la cura
+            hp = hp + 1; // suma una vida
         }
         
     }
@@ -78,7 +89,7 @@ public class PlayerInteractor : MonoBehaviour
     void Respawn()
     {
         // 1. Quita un punto de vida
-        hp--;
+        hp = hp - 1;
         //2- Cambia la posición del player por la del punto de respawn
         transform.position = respawnPoint.position;
         //3- Resetea la velocidad del Rigidbody para evitar acumulaciones de aceleración
@@ -87,19 +98,22 @@ public class PlayerInteractor : MonoBehaviour
         playerRb.angularVelocity = new Vector3(0, 0, 0);
         //5- Reproducir el sonido de respawn desde el audiosource del player
         sfxSource.PlayOneShot(sfxList[1]);
-        //6- reiniciar los pickups y la puntuación
-        SceneManager.LoadScene(sceneToRespawn);
     }
 
-    void gameOver()
+    void healthControl()
     {
+        // No puede superar 3 de vida
+        if (hp > 3) 
+        {
+            hp = 3;
+        }
         // Game over
         if (hp == 0) 
         {
             // Sujeto a cambios, deberia llevar a una escena de pantalla de game over pero de momento se queda en el main menu
             SceneManager.LoadScene(0);
         }
-
+        
     }
 
     void ChangeScene()
