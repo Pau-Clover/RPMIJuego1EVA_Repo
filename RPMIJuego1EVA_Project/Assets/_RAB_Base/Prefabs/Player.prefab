@@ -238,7 +238,6 @@ MonoBehaviour:
   jumpForce: 8
   useLinearVelocity: 0
   groundCheck: 0
-  dashAction: {fileID: 0}
   playerRb: {fileID: 3409069474521666296}
   moveInput: {x: 0, y: 0}
   sfxSource: {fileID: 8591341639417929703}
@@ -247,7 +246,6 @@ MonoBehaviour:
   dashSpeed: 25
   dashDuration: 0.2
   dashCooldown: 1
-  dashThreshold: 5
 --- !u!114 &2955268093276677981
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -262,9 +260,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerInteractor
   respawnPoint: {fileID: 0}
   respawnFallLimit: -10
+  sceneToRespawn: 0
   points: 0
   winPoints: 8
   sceneToLoad: 2
+  hp: 3
   playerRb: {fileID: 3409069474521666296}
   sfxList:
   - {fileID: 8300000, guid: d3469b07ec6c0b94eb017a8d3ff1017b, type: 3}
