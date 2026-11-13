@@ -79,6 +79,7 @@ public class PlayerInteractor : MonoBehaviour
         // recuperar vida
         if (other.gameObject.CompareTag("Heal")) 
         {
+            sfxSource.PlayOneShot(sfxList[3]); //Sonido positivo
             other.gameObject.SetActive(false); //apaga la cura
             hp = hp + 1; // suma una vida
         }
