@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/_RAB_Base/Scenes/SCN_MainMenu.unity
     guid: 39332ef17fe4bc843b5d4d16defe1e35
   - enabled: 1
-    path: Assets/_RAB_Base/Scenes/SCN_LVL04.unity
+    path: Assets/_RAB_Base/Scenes/SCN_LVL04_pau.unity
     guid: 247dbdc8ff3204945a199f5fd3cdcbdd
   - enabled: 1
     path: Assets/_RAB_Base/Scenes/SCN_Victory.unity
