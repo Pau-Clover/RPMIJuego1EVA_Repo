@@ -111,7 +111,7 @@ public class PlayerInteractor : MonoBehaviour
         if (hp == 0) 
         {
             // Sujeto a cambios, deberia llevar a una escena de pantalla de game over pero de momento se queda en el main menu
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene(6);
         }
         
     }
